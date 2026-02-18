@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirai | ProcessNikki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in">
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo-text">MIRAI</div>
+            <div class="links">
+                <a href="index.html">Overview</a>
+                <a href="downloads.html" class="active">Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container centered-content">
+        <div class="panel-card slide-up">
+            <div class="header">
+                <a href="downloads.html" class="back-link">← Categories</a>
+                <h2>ProcessNikki</h2>
+                <p class="sub-status">Utility binary for process management.</p>
+            </div>
+            
+            <div class="field">
+                <select id="processSelect" class="custom-select">
+                    <option value="Nikki.zip">ProcessNikki (Nikki.zip)</option>
+                </select>
+            </div>
+
+            <button onclick="triggerDownload()" class="btn-primary full">Download Nikki.zip</button>
+        </div>
+    </div>
+
+    <script>
+        function triggerDownload() {
+            const select = document.getElementById('processSelect');
+            const file = select.value;
+            const link = document.createElement('a');
+            link.href = file;
+            link.download = file;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+    <footer>
+        <p>@inxyz — lead dev</p>
+    </footer>
+</body>
+</html>
