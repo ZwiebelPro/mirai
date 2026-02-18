@@ -1,60 +1,74 @@
-<div class="panel-card slide-up">
-    <div id="mainView">
-        <a href="downloads.html" class="back-link">← Categories</a>
-        <div class="header">
-            <h2>Native Injector</h2>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo-text">MIRAI</div>
+            <div class="links">
+                <a href="index.html">Overview</a>
+                <a href="downloads.html" class="active">Tools</a>
+            </div>
         </div>
-        <select id="download-select" class="custom-select">
-            <option value="MIRROR">MiraiB.zip (Standard)</option>
-            <option value="Nikki.dll">Nikki.dll (Standalone)</option>
-        </select>
-        <button onclick="checkSelection()" class="btn-primary full">Download</button>
+    </nav>
+
+    <div class="container centered-content">
+        <div class="panel-card slide-up">
+            <div id="mainView">
+                <a href="downloads.html" class="back-link">← Categories</a>
+                <div class="header">
+                    <h2>Native Injector</h2>
+                </div>
+                <select id="download-select" class="custom-select">
+                    <option value="MIRROR">MiraiB.zip (Standard)</option>
+                    <option value="Nikki.dll">Nikki.dll (Standalone)</option>
+                </select>
+                <button onclick="checkSelection()" class="btn-primary full">Download</button>
+            </div>
+
+            <div id="warningView" style="display:none;">
+                <div class="header"><h2>External Mirror</h2></div>
+                <div class="warning-box">
+                    <p style="color:var(--pastel-pink); font-weight:700;">SAFETY PROTOCOL</p>
+                    <p>• Redirecting to MediaFire.</p>
+                    <p>• Only download MiraiB.zip.</p>
+                </div>
+                <button id="timerButton" class="btn-primary full waiting" disabled>Wait 5s...</button>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js?v=2"></script>
-    
-    <div id="warningView" style="display:none;">
-        <div class="header">
-            <h2>External Mirror</h2>
-        </div>
-        <div class="warning-box">
-            <li style="color:var(--pastel-pink); font-weight:700; margin-bottom:10px;">SAFETY PROTOCOL</li>
-            <li>• Redirecting to MediaFire.</li>
-            <li>• Close any pop-up ads immediately.</li>
-            <li>• Only download <b>MiraiB.zip</b>.</li>
-        </div>
-        <button id="timerButton" class="btn-primary full waiting">Wait 5s...</button>
-    </div>
-</div>
+    <footer>
+        <p>DC: @INXYZ — LEAD DEV</p>
+        <p>GITHUB.COM/ZWIEBELPRO</p>
+    </footer>
 
-<script>
-    function checkSelection() {
-        const choice = document.getElementById('download-select').value;
-        if(choice === 'MIRROR') {
-            document.getElementById('mainView').style.display = 'none';
-            document.getElementById('warningView').style.display = 'block';
-            startCountdown("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file");
-        } else {
-            window.location.href = choice;
-        }
-    }
-
-    function startCountdown(url) {
-        const btn = document.getElementById('timerButton');
-        let count = 5;
-        const timer = setInterval(() => {
-            count--;
-            btn.innerText = `Wait ${count}s...`;
-            if (count <= 0) {
-                clearInterval(timer);
-                btn.innerText = "Continue to Download";
-                btn.classList.remove('waiting');
-                btn.onclick = () => {
-                    window.open(url, "_blank");
-                    window.location.href = "downloads.html";
-                };
+    <script>
+        function checkSelection() {
+            const choice = document.getElementById('download-select').value;
+            if(choice === 'MIRROR') {
+                document.getElementById('mainView').style.display = 'none';
+                document.getElementById('warningView').style.display = 'block';
+                startCountdown("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file");
+            } else {
+                window.location.href = choice;
             }
-        }, 1000);
-    }
-</script>
+        }
 
+        function startCountdown(url) {
+            const btn = document.getElementById('timerButton');
+            let count = 5;
+            const timer = setInterval(() => {
+                count--;
+                btn.innerText = `Wait ${count}s...`;
+                if (count <= 0) {
+                    clearInterval(timer);
+                    btn.innerText = "Continue to Download";
+                    btn.classList.remove('waiting');
+                    btn.disabled = false;
+                    btn.onclick = () => {
+                        window.open(url, "_blank");
+                        window.location.href = "downloads.html";
+                    };
+                }
+            }, 1000);
+        }
+    </script>
+</body>
