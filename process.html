@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai | ProcessNikki</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="yuno.png">
 </head>
 <body class="fade-in">
     <nav>
@@ -19,66 +18,54 @@
     </nav>
 
     <div class="container centered-content">
-        <div id="downloadCard" class="panel-card slide-up">
-            <div class="header">
-                <a href="downloads.html" class="back-link">← Categories</a>
-                <h2>ProcessNikki</h2>
-                <p class="sub-status">Utility binary for process management.</p>
-            </div>
-            
-            <div class="field">
-                <div class="item-action disabled" style="background: #0a0b0c; border: 1px solid var(--border);">
-                    <div class="item-text">
+        <div class="panel-card slide-up">
+            <div id="mainView">
+                <div class="header">
+                    <a href="downloads.html" class="back-link">← Categories</a>
+                    <h2>ProcessNikki</h2>
+                    <p class="sub-status">Utility binary for process management.</p>
+                </div>
+                
+                <div class="field">
+                    <div class="item-action" style="background:#0a0b0c; border:1px solid var(--border); cursor:default;">
                         <span class="item-title">NikkiP.zip</span>
-                        <span class="item-desc">MediaFire Mirror</span>
+                        <span class="item-desc" style="color:var(--pastel-pink)">MediaFire Mirror</span>
                     </div>
                 </div>
+
+                <button onclick="showWarning()" class="btn-primary full">Download Nikki.zip</button>
             </div>
 
-            <button onclick="showWarning()" class="btn-primary full">Download NikkiP.zip</button>
-        </div>
-
-        <div id="warningCard" class="panel-card slide-up" style="display: none; border-color: var(--pastel-pink);">
-            <div class="header">
-                <h2 style="color: var(--pastel-pink);">External Redirect</h2>
-                <p style="font-size: 13px; margin-bottom: 20px;">The file is too large for GitHub servers. You will be redirected.</p>
-            </div>
-            
-            <div style="background: rgba(255, 183, 178, 0.1); border-left: 3px solid var(--pastel-pink); padding: 15px; margin-bottom: 25px; text-align: left;">
-                <p style="font-size: 12px; color: var(--pastel-pink); line-height: 1.6;">
-                    ⚠️ <strong>INSTRUCTIONS:</strong><br>
-                    1. Do not click any ads on MediaFire.<br>
-                    2. Only download the zip named <strong>NikkiP.zip</strong>.
-                </p>
-            </div>
-
-            <div style="display: flex; gap: 10px;">
-                <button onclick="cancelRedirect()" style="flex: 1; padding: 15px; background: transparent; border: 1px solid var(--border); color: #fff; cursor: pointer;">Cancel</button>
-                <button onclick="proceedToMediafire()" class="btn-primary" style="flex: 2;">I Understand</button>
+            <div id="warningView" style="display:none;">
+                <div class="header">
+                    <h2>External Mirror</h2>
+                </div>
+                <div class="warning-box">
+                    <p style="color:var(--pastel-pink); font-size:12px; line-height:1.6;">
+                        ⚠️ <strong>NOTICE:</strong> This file is hosted on MediaFire.<br><br>
+                        - Do not click ads.<br>
+                        - Only download <strong>NikkiP.zip</strong>.
+                    </p>
+                </div>
+                <button onclick="finalRedirect()" class="btn-primary full">I Understand</button>
             </div>
         </div>
     </div>
 
     <script>
         function showWarning() {
-            document.getElementById('downloadCard').style.display = 'none';
-            document.getElementById('warningCard').style.display = 'block';
+            document.getElementById('mainView').style.display = 'none';
+            document.getElementById('warningView').style.display = 'block';
         }
 
-        function cancelRedirect() {
-            document.getElementById('warningCard').style.display = 'none';
-            document.getElementById('downloadCard').style.display = 'block';
-        }
-
-        function proceedToMediafire() {
-            // THE FIX: Directly opening the MediaFire URL to avoid GitHub's 100MB/404 issues
+        function finalRedirect() {
             window.open("https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file", "_blank");
-            cancelRedirect();
+            window.location.href = "downloads.html";
         }
     </script>
 
     <footer>
-        <p>dc: @inxyz — lead dev</p>
+        <p>@inxyz — lead dev</p>
     </footer>
 </body>
 </html>
