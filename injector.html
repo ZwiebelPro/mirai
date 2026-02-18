@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirai | Injector</title>
+    <title>Mirai | Native DLL Injector</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
@@ -19,41 +19,48 @@
 
     <div class="container centered-content">
         <div class="panel-card slide-up">
-            <div id="main-view">
+            <div id="selectView">
                 <div class="header">
-                    <a href="downloads.html" style="color:var(--pastel-pink); text-decoration:none; font-size:11px; font-weight:700; display:block; margin-bottom:10px;">← CATEGORIES</a>
-                    <h2 style="margin-bottom:25px;">Native DLL Injector</h2>
+                    <a href="downloads.html" class="back-link">← Categories</a>
+                    <h2>Native DLL Injector</h2>
+                    <p class="sub-status">Active deployment builds.</p>
                 </div>
-                <select id="fileSelect" style="width:100%; padding:18px; background:#000; color:#fff; border:1px solid var(--border); margin-bottom:25px; outline:none;">
-                    <option value="MIRAI_B">MiraiB (Main Package)</option>
-                    <option value="NIKKI_DLL">Nikki.dll (Runtime Only)</option>
-                </select>
-                <button onclick="handleAction()" class="btn-primary" style="width:100%">Download Selected</button>
+                
+                <div class="field">
+                    <select id="versionSelect" class="custom-select">
+                        <option value="MIRROR">MiraiB.zip (Main Package)</option>
+                        <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
+                    </select>
+                </div>
+
+                <button onclick="handleDownload()" class="btn-primary full">Download Selected</button>
             </div>
 
-            <div id="warning-view" style="display:none;">
-                <h2 style="color:var(--pastel-pink); margin-bottom:20px;">External Mirror</h2>
+            <div id="warningView" style="display:none;">
+                <div class="header">
+                    <h2>External Mirror</h2>
+                </div>
                 <div class="warning-box">
                     <p style="color:var(--pastel-pink); font-size:12px; line-height:1.6;">
-                        ⚠️ <strong>NOTICE:</strong><br>
-                        The MiraiB package is hosted externally.<br><br>
-                        - You are being sent to <strong>MediaFire</strong>.<br>
-                        - Do NOT click any advertisements.<br>
-                        - Only download <strong>MiraiB.zip</strong>.
+                        ⚠️ <strong>NOTICE:</strong> MiraiB is too large for GitHub.<br><br>
+                        1. You are going to MediaFire.<br>
+                        2. Do not click ads.<br>
+                        3. Only download <strong>MiraiB.zip</strong>.
                     </p>
                 </div>
-                <button onclick="doRedirect()" class="btn-primary" style="width:100%">I Understand</button>
+                <button onclick="finalRedirect()" class="btn-primary full">I Understand</button>
             </div>
         </div>
     </div>
 
     <script>
-        function handleAction() {
-            const val = document.getElementById('fileSelect').value;
-            if(val === 'MIRAI_B') {
-                document.getElementById('main-view').style.display = 'none';
-                document.getElementById('warning-view').style.display = 'block';
+        function handleDownload() {
+            const val = document.getElementById('versionSelect').value;
+            if(val === 'MIRROR') {
+                document.getElementById('selectView').style.display = 'none';
+                document.getElementById('warningView').style.display = 'block';
             } else {
+                // Regular GitHub download for Nikki.dll
                 const link = document.createElement('a');
                 link.href = 'Nikki.dll';
                 link.download = 'Nikki.dll';
@@ -62,7 +69,8 @@
                 document.body.removeChild(link);
             }
         }
-        function doRedirect() {
+
+        function finalRedirect() {
             window.open("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file", "_blank");
             window.location.href = "downloads.html";
         }
