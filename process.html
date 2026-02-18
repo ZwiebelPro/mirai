@@ -1,46 +1,45 @@
 <div class="panel-card slide-up">
     <div id="mainView">
+        <a href="downloads.html" class="back-link">← Categories</a>
         <div class="header">
-            <a href="downloads.html" class="back-link">← Categories</a>
             <h2>ProcessNikki</h2>
-            <p class="sub-status">Utility binary for management.</p>
+            <p class="sub-status">Utility binary extension.</p>
         </div>
-        <div class="item-action" style="background:#0a0b0c; border:1px solid var(--border); cursor:default; margin-bottom: 30px;">
-            <span class="item-title">NikkiP.zip</span>
-            <span class="item-desc" style="color:var(--pastel-pink)">MediaFire Mirror</span>
+        <div class="item-action" style="background:#0a0b0c; border:1px solid var(--border); cursor:default; margin-bottom:30px;">
+            <div class="item-text">
+                <span class="item-title">NikkiP.zip</span>
+                <span class="item-desc">Verification: Hash_v2</span>
+            </div>
         </div>
-        <button onclick="triggerWarning()" class="btn-primary full">Download Nikki.zip</button>
+        <button onclick="showProcessWarning()" class="btn-primary full">Download NikkiP.zip</button>
     </div>
 
     <div id="warningView" style="display:none;">
         <div class="header">
             <h2>External Mirror</h2>
-            <span class="sub-status">Safety Protocol</span>
         </div>
         <div class="warning-box">
-            <strong>Security Notice</strong>
-            <ul>
-                <li>• File is hosted on MediaFire servers.</li>
-                <li>• Avoid clicking external advertisements.</li>
-                <li>• Only download "NikkiP.zip".</li>
-            </ul>
+            <li style="color:var(--pastel-pink); font-weight:700; margin-bottom:10px;">SAFETY PROTOCOL</li>
+            <li>• Redirecting to MediaFire.</li>
+            <li>• Do not interact with browser notifications.</li>
+            <li>• Only download <b>NikkiP.zip</b>.</li>
         </div>
         <button id="timerButton" class="btn-primary full waiting">Wait 5s...</button>
     </div>
 </div>
 
 <script>
-    function triggerWarning() {
+    function showProcessWarning() {
         document.getElementById('mainView').style.display = 'none';
         document.getElementById('warningView').style.display = 'block';
         
         const btn = document.getElementById('timerButton');
-        let timeLeft = 5;
-        const countdown = setInterval(() => {
-            timeLeft--;
-            btn.innerText = `Wait ${timeLeft}s...`;
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
+        let count = 5;
+        const timer = setInterval(() => {
+            count--;
+            btn.innerText = `Wait ${count}s...`;
+            if (count <= 0) {
+                clearInterval(timer);
                 btn.innerText = "Continue to Download";
                 btn.classList.remove('waiting');
                 btn.onclick = () => {
