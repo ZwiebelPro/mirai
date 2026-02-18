@@ -1,52 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirai | Injector</title>
-    <link rel="stylesheet" href="style.css?v=fresh">
-</head>
-<body class="fade-in">
-    <nav>
-        <div class="nav-content">
-            <div class="nav-logo-text">MIRAI</div>
-            <div class="links">
-                <a href="index.html">Overview</a>
-                <a href="downloads.html" class="active">Tools</a>
-            </div>
+<div class="panel-card slide-up">
+    <div id="mainView">
+        <a href="downloads.html" class="back-link">← Categories</a>
+        <div class="header">
+            <h2>Native Injector</h2>
         </div>
-    </nav>
-
-    <div class="container centered-content">
-        <div class="panel-card slide-up">
-            <a href="downloads.html" class="back-link">← Categories</a>
-            <div class="header">
-                <h2>Native Injector</h2>
-            </div>
-            
-            <select id="download-select" class="custom-select">
-                <option value="MIRROR">MiraiB.zip (Standard)</option>
-                <option value="Nikki.dll">Nikki.dll (Standalone)</option>
-            </select>
-
-            <button onclick="runDownload()" class="btn-primary full">Download</button>
-        </div>
+        <select id="download-select" class="custom-select">
+            <option value="MIRROR">MiraiB.zip (Standard)</option>
+            <option value="Nikki.dll">Nikki.dll (Standalone)</option>
+        </select>
+        <button onclick="startRedirect('https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file')" class="btn-primary full">Download</button>
     </div>
 
-    <script>
-        function runDownload() {
-            const choice = document.getElementById('download-select').value;
-            if(choice === 'MIRROR') {
-                window.open("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file", "_blank");
-            } else {
-                window.location.href = choice;
-            }
-        }
-    </script>
+    <div id="warningView" style="display:none;">
+        <div class="header">
+            <h2>External Mirror</h2>
+            <span class="sub-status">Safety Protocol</span>
+        </div>
+        <div class="warning-box">
+            <strong>Security Notice</strong>
+            <ul>
+                <li>• File is hosted on MediaFire servers.</li>
+                <li>• Avoid clicking external advertisements.</li>
+                <li>• Verified Hash: <span style="color:var(--text-white)">mirai_root_v1</span></li>
+            </ul>
+        </div>
+        <button id="timerButton" class="btn-primary full waiting">Wait 5s...</button>
+    </div>
+</div>
 
-    <footer>
-        <p>dc: @inxyz — lead dev</p>
-        <p><a href="https://github.com/ZwiebelPro" target="_blank" class="footer-link">github.com/ZwiebelPro</a></p>
-    </footer>
-</body>
-</html>
+<script>
+    let targetUrl = "";
+
+    function startRedirect(url) {
+        const choice = document.getElementById('download-select').value;
+        if(choice === 'MIRROR') {
+            targetUrl = url;
+            document.getElementById('mainView').style.display = 'none';
+            document.getElementById('warningView').style.display = 'block';
+            startTimer();
+        } else {
+            window.location.href = choice;
+        }
+    }
+
+    function startTimer() {
+        const btn = document.getElementById('timerButton');
+        let timeLeft = 5;
+        const countdown = setInterval(() => {
+            timeLeft--;
+            btn.innerText = `Wait ${timeLeft}s...`;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                btn.innerText = "Continue to Download";
+                btn.classList.remove('waiting');
+                btn.onclick = () => {
+                    window.open(targetUrl, "_blank");
+                    window.location.href = "downloads.html";
+                };
+            }
+        }, 1000);
+    }
+</script>
