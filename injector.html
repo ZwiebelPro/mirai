@@ -28,25 +28,32 @@
             
             <div class="field">
                 <select id="versionSelect" class="custom-select">
-                    <option value="MiraiB.zip">MiraiB (Main Package)</option>
+                    <option value="MiraiB/">MiraiB (Open Folder)</option>
                     <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
                 </select>
             </div>
 
-            <button onclick="triggerDownload()" class="btn-primary full">Download Selected</button>
+            <button onclick="triggerAction()" class="btn-primary full">Access Selected</button>
         </div>
     </div>
 
     <script>
-        function triggerDownload() {
+        function triggerAction() {
             const select = document.getElementById('versionSelect');
-            const file = select.value;
-            const link = document.createElement('a');
-            link.href = file;
-            link.download = file;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const target = select.value;
+            
+            // If it's the folder, we just navigate to it
+            if (target === "MiraiB/") {
+                window.location.href = target;
+            } else {
+                // If it's the DLL, we download it
+                const link = document.createElement('a');
+                link.href = target;
+                link.download = target;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         }
     </script>
 
