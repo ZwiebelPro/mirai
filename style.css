@@ -167,6 +167,8 @@ h1 {
 }
 
 /* Updated Footer for multiple lines and links */
+/* ... rest of previous CSS ... */
+
 footer {
     position: fixed;
     bottom: 25px;
@@ -174,7 +176,8 @@ footer {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Spacing between lines */
+    gap: 8px;
+    z-index: 100; /* Ensure it's above background logo */
 }
 
 footer p {
@@ -188,10 +191,11 @@ footer p {
 .footer-link {
     color: var(--text-dim);
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-link:hover {
     color: var(--pastel-pink);
-    letter-spacing: 3px;
+    letter-spacing: 4px; /* Slight stretch on hover for GitHub */
 }
+
