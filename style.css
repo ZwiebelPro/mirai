@@ -197,3 +197,53 @@ footer p {
     color: var(--pastel-pink);
     letter-spacing: 3px;
 }
+
+/* Warning Specific Styles */
+.warning-text {
+    font-size: 13px;
+    color: var(--text-white);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.warning-box {
+    background: rgba(255, 183, 178, 0.1);
+    border-left: 3px solid var(--pastel-pink);
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.warning-box p {
+    font-size: 13px;
+    color: var(--pastel-pink);
+    line-height: 1.6;
+}
+
+.btn-group-row {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 15px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-white);
+    color: var(--text-white);
+}
+
+/* Ensure accent color for warning header */
+.accent {
+    color: var(--pastel-pink);
+}
