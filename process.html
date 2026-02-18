@@ -19,7 +19,7 @@
     </nav>
 
     <div class="container centered-content">
-        <div class="panel-card slide-up">
+        <div id="downloadCard" class="panel-card slide-up">
             <div class="header">
                 <a href="downloads.html" class="back-link">← Categories</a>
                 <h2>ProcessNikki</h2>
@@ -28,23 +28,46 @@
             
             <div class="field">
                 <select id="processSelect" class="custom-select">
-                    <option value="Nikki.exe">Nikki.exe (Standalone Utility)</option>
+                    <option value="https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file">NikkiP.zip (External Mirror)</option>
                 </select>
             </div>
 
-            <button onclick="triggerDownload()" class="btn-primary full">Download Nikki.exe</button>
+            <button onclick="showWarning()" class="btn-primary full">Download NikkiP.zip</button>
+        </div>
+
+        <div id="warningCard" class="panel-card slide-up" style="display: none; border-color: var(--pastel-pink);">
+            <div class="header">
+                <h2 class="accent">External Redirect</h2>
+                <p class="warning-text">You are being redirected to MediaFire because the file is too big for the native server.</p>
+            </div>
+            
+            <div class="warning-box">
+                <p>⚠️ <strong>IMPORTANT:</strong> Do not click on any ads on MediaFire. Only download the zip called <strong>NikkiP.zip</strong>.</p>
+            </div>
+
+            <div class="btn-group-row">
+                <button onclick="cancelRedirect()" class="btn-secondary">Cancel</button>
+                <button onclick="proceedToMediafire()" class="btn-primary">I Understand</button>
+            </div>
         </div>
     </div>
 
     <script>
-        function triggerDownload() {
-            const file = document.getElementById('processSelect').value;
-            const link = document.createElement('a');
-            link.href = file;
-            link.download = file;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        const downloadLink = "https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file";
+
+        function showWarning() {
+            document.getElementById('downloadCard').style.display = 'none';
+            document.getElementById('warningCard').style.display = 'block';
+        }
+
+        function cancelRedirect() {
+            document.getElementById('warningCard').style.display = 'none';
+            document.getElementById('downloadCard').style.display = 'block';
+        }
+
+        function proceedToMediafire() {
+            window.open(downloadLink, '_blank');
+            cancelRedirect(); // Reset view
         }
     </script>
 
