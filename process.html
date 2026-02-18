@@ -27,9 +27,12 @@
             </div>
             
             <div class="field">
-                <select id="processSelect" class="custom-select">
-                    <option value="https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file">NikkiP.zip (External Mirror)</option>
-                </select>
+                <div class="item-action disabled" style="background: #0a0b0c; border: 1px solid var(--border);">
+                    <div class="item-text">
+                        <span class="item-title">NikkiP.zip</span>
+                        <span class="item-desc">MediaFire Mirror</span>
+                    </div>
+                </div>
             </div>
 
             <button onclick="showWarning()" class="btn-primary full">Download NikkiP.zip</button>
@@ -37,24 +40,26 @@
 
         <div id="warningCard" class="panel-card slide-up" style="display: none; border-color: var(--pastel-pink);">
             <div class="header">
-                <h2 class="accent">External Redirect</h2>
-                <p class="warning-text">You are being redirected to MediaFire because the file is too big for the native server.</p>
+                <h2 style="color: var(--pastel-pink);">External Redirect</h2>
+                <p style="font-size: 13px; margin-bottom: 20px;">The file is too large for GitHub servers. You will be redirected.</p>
             </div>
             
-            <div class="warning-box">
-                <p>⚠️ <strong>IMPORTANT:</strong> Do not click on any ads on MediaFire. Only download the zip called <strong>NikkiP.zip</strong>.</p>
+            <div style="background: rgba(255, 183, 178, 0.1); border-left: 3px solid var(--pastel-pink); padding: 15px; margin-bottom: 25px; text-align: left;">
+                <p style="font-size: 12px; color: var(--pastel-pink); line-height: 1.6;">
+                    ⚠️ <strong>INSTRUCTIONS:</strong><br>
+                    1. Do not click any ads on MediaFire.<br>
+                    2. Only download the zip named <strong>NikkiP.zip</strong>.
+                </p>
             </div>
 
-            <div class="btn-group-row">
-                <button onclick="cancelRedirect()" class="btn-secondary">Cancel</button>
-                <button onclick="proceedToMediafire()" class="btn-primary">I Understand</button>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="cancelRedirect()" style="flex: 1; padding: 15px; background: transparent; border: 1px solid var(--border); color: #fff; cursor: pointer;">Cancel</button>
+                <button onclick="proceedToMediafire()" class="btn-primary" style="flex: 2;">I Understand</button>
             </div>
         </div>
     </div>
 
     <script>
-        const downloadLink = "https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file";
-
         function showWarning() {
             document.getElementById('downloadCard').style.display = 'none';
             document.getElementById('warningCard').style.display = 'block';
@@ -66,8 +71,9 @@
         }
 
         function proceedToMediafire() {
-            window.open(downloadLink, '_blank');
-            cancelRedirect(); // Reset view
+            // THE FIX: Directly opening the MediaFire URL to avoid GitHub's 100MB/404 issues
+            window.open("https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file", "_blank");
+            cancelRedirect();
         }
     </script>
 
