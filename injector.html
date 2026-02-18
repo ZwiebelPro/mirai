@@ -28,7 +28,7 @@
             
             <div class="field">
                 <select id="versionSelect" class="custom-select">
-                    <option value="MiraiB/">MiraiB (Open Folder)</option>
+                    <option value="EXTERNAL_MIRROR">MiraiB (External Download)</option>
                     <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
                 </select>
             </div>
@@ -42,11 +42,12 @@
             const select = document.getElementById('versionSelect');
             const target = select.value;
             
-            // If it's the folder, we just navigate to it
-            if (target === "MiraiB/") {
-                window.location.href = target;
+            if (target === "EXTERNAL_MIRROR") {
+                // REPLACE THE LINK BELOW with your MediaFire/Drive link for MiraiB
+                alert("Redirecting to external mirror for MiraiB...");
+                window.open("https://www.mediafire.com/your-link-here", "_blank");
             } else {
-                // If it's the DLL, we download it
+                // Standard download for small files like Nikki.dll
                 const link = document.createElement('a');
                 link.href = target;
                 link.download = target;
