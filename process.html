@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai | Process</title>
-    <link rel="stylesheet" href="style.css?v=10">
-    <link rel="icon" href="yuno.png">
+    <link rel="stylesheet" href="style.css?v=99">
 </head>
 <body class="fade-in">
     <nav>
@@ -22,12 +21,10 @@
         <div class="panel-card slide-up">
             <div id="mainView">
                 <a href="downloads.html" class="back-link">← Categories</a>
-                <div class="header">
-                    <h2>ProcessNikki</h2>
-                </div>
-                <div class="item-action" style="background:#0a0b0c; border:1px solid var(--border); cursor:default; margin-bottom:30px; display:block;">
-                    <span class="item-title">NikkiP.zip</span>
-                    <span class="item-desc">Utility binary extension.</span>
+                <div class="header"><h2>ProcessNikki</h2></div>
+                <div class="warning-box" style="background:#0a0b0c;">
+                    <p style="color:white;">NikkiP.zip</p>
+                    <p style="font-size:11px;">Utility binary extension.</p>
                 </div>
                 <button onclick="showWarning()" class="btn-primary full">Download</button>
             </div>
@@ -35,10 +32,10 @@
             <div id="warningView" style="display:none;">
                 <div class="header"><h2>External Mirror</h2></div>
                 <div class="warning-box">
-                    <p style="color:var(--pastel-pink); font-weight:700;">SAFETY PROTOCOL</p>
-                    <p>• Redirecting to MediaFire.</p>
+                    <p style="color:var(--pastel-pink); font-weight:700; margin-bottom:10px;">SAFETY PROTOCOL</p>
+                    <p style="font-size:12px; color:var(--text-dim);">Redirecting to MediaFire. Avoid clicking advertisements.</p>
                 </div>
-                <button id="timerButton" class="btn-primary full waiting" disabled>Wait 5s...</button>
+                <button id="timerButton" class="btn-primary full waiting">Wait 5s...</button>
             </div>
         </div>
     </div>
@@ -61,7 +58,6 @@
                     clearInterval(timer);
                     btn.innerText = "Continue to Download";
                     btn.classList.remove('waiting');
-                    btn.disabled = false;
                     btn.onclick = () => {
                         window.open("https://www.mediafire.com/file/urhxg1o8mgeqhw2/NikkiP.zip/file", "_blank");
                         window.location.href = "downloads.html";
