@@ -8,53 +8,47 @@
             <option value="MIRROR">MiraiB.zip (Standard)</option>
             <option value="Nikki.dll">Nikki.dll (Standalone)</option>
         </select>
-        <button onclick="startRedirect('https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file')" class="btn-primary full">Download</button>
+        <button onclick="checkSelection()" class="btn-primary full">Download</button>
     </div>
 
     <div id="warningView" style="display:none;">
         <div class="header">
             <h2>External Mirror</h2>
-            <span class="sub-status">Safety Protocol</span>
         </div>
         <div class="warning-box">
-            <strong>Security Notice</strong>
-            <ul>
-                <li>• File is hosted on MediaFire servers.</li>
-                <li>• Avoid clicking external advertisements.</li>
-                <li>• Verified Hash: <span style="color:var(--text-white)">mirai_root_v1</span></li>
-            </ul>
+            <li style="color:var(--pastel-pink); font-weight:700; margin-bottom:10px;">SAFETY PROTOCOL</li>
+            <li>• Redirecting to MediaFire.</li>
+            <li>• Close any pop-up ads immediately.</li>
+            <li>• Only download <b>MiraiB.zip</b>.</li>
         </div>
         <button id="timerButton" class="btn-primary full waiting">Wait 5s...</button>
     </div>
 </div>
 
 <script>
-    let targetUrl = "";
-
-    function startRedirect(url) {
+    function checkSelection() {
         const choice = document.getElementById('download-select').value;
         if(choice === 'MIRROR') {
-            targetUrl = url;
             document.getElementById('mainView').style.display = 'none';
             document.getElementById('warningView').style.display = 'block';
-            startTimer();
+            startCountdown("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file");
         } else {
             window.location.href = choice;
         }
     }
 
-    function startTimer() {
+    function startCountdown(url) {
         const btn = document.getElementById('timerButton');
-        let timeLeft = 5;
-        const countdown = setInterval(() => {
-            timeLeft--;
-            btn.innerText = `Wait ${timeLeft}s...`;
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
+        let count = 5;
+        const timer = setInterval(() => {
+            count--;
+            btn.innerText = `Wait ${count}s...`;
+            if (count <= 0) {
+                clearInterval(timer);
                 btn.innerText = "Continue to Download";
                 btn.classList.remove('waiting');
                 btn.onclick = () => {
-                    window.open(targetUrl, "_blank");
+                    window.open(url, "_blank");
                     window.location.href = "downloads.html";
                 };
             }
