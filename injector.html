@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirai | Native DLL Injector</title>
+    <title>Mirai | Injector</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
@@ -22,22 +22,22 @@
             <div id="main-view">
                 <div class="header">
                     <a href="downloads.html" style="color:var(--pastel-pink); text-decoration:none; font-size:11px; font-weight:700; display:block; margin-bottom:10px;">← CATEGORIES</a>
-                    <h2>Native DLL Injector</h2>
+                    <h2 style="margin-bottom:25px;">Native DLL Injector</h2>
                 </div>
                 <select id="fileSelect" style="width:100%; padding:18px; background:#000; color:#fff; border:1px solid var(--border); margin-bottom:25px; outline:none;">
                     <option value="MIRAI_B">MiraiB (Main Package)</option>
                     <option value="NIKKI_DLL">Nikki.dll (Runtime Only)</option>
                 </select>
-                <button onclick="handleDownload()" class="btn-primary" style="width:100%">Download Selected</button>
+                <button onclick="handleAction()" class="btn-primary" style="width:100%">Download Selected</button>
             </div>
 
             <div id="warning-view" style="display:none;">
                 <h2 style="color:var(--pastel-pink); margin-bottom:20px;">External Mirror</h2>
                 <div class="warning-box">
                     <p style="color:var(--pastel-pink); font-size:12px; line-height:1.6;">
-                        ⚠️ <strong>IMPORTANT:</strong><br>
-                        The MiraiB package is too large for GitHub.<br><br>
-                        - You will be redirected to <strong>MediaFire</strong>.<br>
+                        ⚠️ <strong>NOTICE:</strong><br>
+                        The MiraiB package is hosted externally.<br><br>
+                        - You are being sent to <strong>MediaFire</strong>.<br>
                         - Do NOT click any advertisements.<br>
                         - Only download <strong>MiraiB.zip</strong>.
                     </p>
@@ -48,13 +48,12 @@
     </div>
 
     <script>
-        function handleDownload() {
+        function handleAction() {
             const val = document.getElementById('fileSelect').value;
             if(val === 'MIRAI_B') {
                 document.getElementById('main-view').style.display = 'none';
                 document.getElementById('warning-view').style.display = 'block';
             } else {
-                // Direct download for small files
                 const link = document.createElement('a');
                 link.href = 'Nikki.dll';
                 link.download = 'Nikki.dll';
@@ -63,14 +62,13 @@
                 document.body.removeChild(link);
             }
         }
-
         function doRedirect() {
             window.open("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file", "_blank");
             window.location.href = "downloads.html";
         }
     </script>
 
-    <footer class="footer-credits">
+    <footer>
         <p>dc: @inxyz — lead dev</p>
     </footer>
 </body>
