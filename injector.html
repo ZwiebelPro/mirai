@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirai | Injectors</title>
+    <title>Mirai | Native DLL Injector</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
@@ -21,40 +21,36 @@
         <div class="panel-card slide-up">
             <div class="header">
                 <a href="downloads.html" class="back-link">← Categories</a>
-                <h2>Mirai Injectors</h2>
-                <p class="sub-status">Only v26.2 is currently available.</p>
+                <h2>Native DLL Injector</h2>
+                <p class="sub-status">Active deployment builds.</p>
             </div>
             
             <div class="field">
                 <select id="versionSelect" class="custom-select">
-                    <option value="Mirai26.2.exe">Mirai26.2.exe (Online)</option>
-                    <option value="" disabled>Mirai26.1.exe (Offline)</option>
-                    <option value="" disabled>Nikki.dll (Offline)</option>
+                    <option value="MiraiB.zip">MiraiB.zip (Main Package)</option>
+                    <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
                 </select>
             </div>
 
-            <button onclick="triggerDownload()" class="btn-primary full">Download v26.2</button>
+            <button onclick="triggerDownload()" class="btn-primary full">Download Selected</button>
         </div>
     </div>
 
     <script>
         function triggerDownload() {
             const select = document.getElementById('versionSelect');
-            if (!select.value) {
-                alert("This version is currently unavailable.");
-                return;
-            }
+            const file = select.value;
             const link = document.createElement('a');
-            link.href = select.value;
-            link.download = select.value;
+            link.href = file;
+            link.download = file;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
     </script>
 
-    <footer>
-        <p>@inxyz — lead dev &nbsp; | &nbsp; @kpr.tekk — interference</p>
+<footer>
+        <p>dc: @inxyz — lead dev</p>
     </footer>
 </body>
 </html>
