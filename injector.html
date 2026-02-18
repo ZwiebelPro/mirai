@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai | Injector</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=fresh">
 </head>
 <body class="fade-in">
     <nav>
@@ -19,49 +19,34 @@
 
     <div class="container centered-content">
         <div class="panel-card slide-up">
-            <div id="main-ui">
-                <div class="header">
-                    <a href="downloads.html" class="back-link">← Categories</a>
-                    <h2>Native DLL Injector</h2>
-                    <p class="sub-status">Active deployment builds.</p>
-                </div>
-                <div class="field">
-                    <select id="versionSelect" class="custom-select">
-                        <option value="MIRROR">MiraiB.zip (Main Package)</option>
-                        <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
-                    </select>
-                </div>
-                <button onclick="handleDownload()" class="btn-primary full">Download Selected</button>
+            <a href="downloads.html" class="back-link">← Categories</a>
+            <div class="header">
+                <h2>Native Injector</h2>
             </div>
+            
+            <select id="download-select" class="custom-select">
+                <option value="MIRROR">MiraiB.zip (Standard)</option>
+                <option value="Nikki.dll">Nikki.dll (Standalone)</option>
+            </select>
 
-            <div id="warning-ui" style="display:none;">
-                <h2 style="color:var(--pastel-pink); margin-bottom:20px;">External Mirror</h2>
-                <div class="warning-box" style="background: rgba(255, 183, 178, 0.1); border-left: 3px solid var(--pastel-pink); padding: 20px; margin-bottom: 30px; text-align: left;">
-                    <p style="color:var(--pastel-pink); font-size:12px; line-height:1.6;">
-                        ⚠️ <strong>NOTICE:</strong> MiraiB is hosted on MediaFire.<br><br>
-                        - Only download <strong>MiraiB.zip</strong>.<br>
-                        - Close any popup ads immediately.
-                    </p>
-                </div>
-                <button onclick="finalRedirect()" class="btn-primary full">I Understand</button>
-            </div>
+            <button onclick="runDownload()" class="btn-primary full">Download</button>
         </div>
     </div>
 
     <script>
-        function handleDownload() {
-            const val = document.getElementById('versionSelect').value;
-            if(val === 'MIRROR') {
-                document.getElementById('main-ui').style.display = 'none';
-                document.getElementById('warning-ui').style.display = 'block';
+        function runDownload() {
+            const choice = document.getElementById('download-select').value;
+            if(choice === 'MIRROR') {
+                window.open("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file", "_blank");
             } else {
-                window.location.href = 'Nikki.dll';
+                window.location.href = choice;
             }
         }
-        function finalRedirect() {
-            window.open("https://www.mediafire.com/file/2o0mhugq2xx1iiv/MiraiB.zip/file", "_blank");
-            window.location.href = "downloads.html";
-        }
     </script>
+
+    <footer>
+        <p>dc: @inxyz — lead dev</p>
+        <p><a href="https://github.com/ZwiebelPro" target="_blank" class="footer-link">github.com/ZwiebelPro</a></p>
+    </footer>
 </body>
 </html>
