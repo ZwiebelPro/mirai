@@ -195,3 +195,37 @@ footer p {
     color: var(--pastel-pink);
     letter-spacing: 3px;
 }
+
+.warning-box {
+    background: rgba(255, 183, 178, 0.05);
+    border-left: 2px solid var(--pastel-pink);
+    padding: 20px;
+    margin: 20px 0 30px 0;
+    text-align: left;
+}
+
+.warning-box ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.warning-box li {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+}
+
+.warning-box strong {
+    color: var(--pastel-pink);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Grayed out state for the timer */
+.btn-primary.waiting {
+    background: #1c1f23;
+    color: var(--text-dim);
+    cursor: not-allowed;
+    pointer-events: none;
+}
