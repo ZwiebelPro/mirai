@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai | ProcessNikki</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="yuno.png">
 </head>
 <body class="fade-in">
     <nav>
@@ -27,18 +28,17 @@
             
             <div class="field">
                 <select id="processSelect" class="custom-select">
-                    <option value="Nikki.zip">ProcessNikki (Nikki.zip)</option>
+                    <option value="Nikki.exe">Nikki.exe (Standalone Utility)</option>
                 </select>
             </div>
 
-            <button onclick="triggerDownload()" class="btn-primary full">Download Nikki.zip</button>
+            <button onclick="triggerDownload()" class="btn-primary full">Download Nikki.exe</button>
         </div>
     </div>
 
     <script>
         function triggerDownload() {
-            const select = document.getElementById('processSelect');
-            const file = select.value;
+            const file = document.getElementById('processSelect').value;
             const link = document.createElement('a');
             link.href = file;
             link.download = file;
@@ -49,7 +49,7 @@
     </script>
 
     <footer>
-        <p>@inxyz — lead dev</p>
+        <p>dc: @inxyz — lead dev</p>
     </footer>
 </body>
 </html>
