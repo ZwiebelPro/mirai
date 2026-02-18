@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirai | Injectors</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="yuno.png">
 </head>
 <body class="fade-in">
     <nav>
@@ -23,14 +22,14 @@
             <div class="header">
                 <a href="downloads.html" class="back-link">← Categories</a>
                 <h2>Mirai Injectors</h2>
-                <p class="sub-status">Note: Only v26.2 is currently available.</p>
+                <p class="sub-status">Only v26.2 is currently available.</p>
             </div>
             
             <div class="field">
                 <select id="versionSelect" class="custom-select">
                     <option value="Mirai26.2.exe">Mirai26.2.exe (Online)</option>
                     <option value="" disabled>Mirai26.1.exe (Offline)</option>
-                    <option value="" disabled>Nikki.dll (Coming Soon)</option>
+                    <option value="" disabled>Nikki.dll (Offline)</option>
                 </select>
             </div>
 
@@ -41,16 +40,13 @@
     <script>
         function triggerDownload() {
             const select = document.getElementById('versionSelect');
-            const file = select.value;
-            
-            if (!file) {
+            if (!select.value) {
                 alert("This version is currently unavailable.");
                 return;
             }
-
             const link = document.createElement('a');
-            link.href = file;
-            link.download = file;
+            link.href = select.value;
+            link.download = select.value;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -58,8 +54,7 @@
     </script>
 
     <footer>
-        <p>DC: @inxyz — lead dev &nbsp; </p>
+        <p>@inxyz — lead dev &nbsp; | &nbsp; @kpr.tekk — interference</p>
     </footer>
 </body>
-
 </html>
