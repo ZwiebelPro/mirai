@@ -17,10 +17,10 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-dark) !important;
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 .fade-in { animation: fadeIn 0.8s ease-out; }
@@ -105,10 +105,7 @@ h1 {
     display: inline-block;
     transition: 0.4s;
     border: none;
-    cursor: pointer;
 }
-
-.btn-primary:hover { background: #fff; transform: translateY(-5px); }
 
 .container.centered-content {
     display: flex;
@@ -125,33 +122,12 @@ h1 {
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 
-.header h2 { font-family: 'Inter Tight', sans-serif; font-size: 32px; margin-bottom: 30px; }
-
-.sub-status { font-size: 11px; color: var(--pastel-pink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; display: block; }
-
-.item-action {
-    display: flex;
-    justify-content: space-between;
-    background: #1c1f23;
-    padding: 25px;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: 0.3s;
-}
-
-.item-action:hover:not(.disabled) { background: #252a2f; transform: scale(1.02); }
-
-.item-title { color: #fff; font-weight: 700; font-size: 16px; }
-.item-desc { color: var(--text-dim); font-size: 12px; margin-top: 4px; }
-.item-arrow { color: var(--pastel-pink); }
-
 .custom-select {
     width: 100%;
     padding: 20px;
     background: #0a0b0c;
     border: 1px solid var(--border);
     color: #fff;
-    font-weight: 600;
     margin-bottom: 30px;
     outline: none;
 }
@@ -169,9 +145,7 @@ h1 {
 }
 
 footer {
-    position: fixed;
-    bottom: 25px;
-    width: 100%;
+    padding: 40px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -184,16 +158,4 @@ footer p {
     letter-spacing: 2px;
     color: var(--text-dim);
     font-weight: 700;
-}
-
-.footer-link { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
-.footer-link:hover { color: var(--pastel-pink); letter-spacing: 3px; }
-
-/* The Warning Box for Mirrors */
-.warning-box {
-    background: rgba(255, 183, 178, 0.1);
-    border-left: 3px solid var(--pastel-pink);
-    padding: 20px;
-    margin-bottom: 30px;
-    text-align: left;
 }
