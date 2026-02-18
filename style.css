@@ -1,163 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Inter+Tight:wght@900&family=Syne:wght@800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirai | Overview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="yuno.png">
+</head>
+<body class="fade-in">
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo-text">MIRAI</div>
+            <div class="links">
+                <a href="index.html" class="active">Overview</a>
+                <a href="downloads.html">Tools</a>
+            </div>
+        </div>
+    </nav>
 
-:root {
-    --bg-dark: #0a0b0c;
-    --panel-gray: #141619;
-    --pastel-pink: #ffb7b2;
-    --border: rgba(255, 255, 255, 0.05);
-    --text-white: #ffffff;
-    --text-dim: #717171;
-}
+    <main class="hero centered">
+        <img src="yuno.png" alt="Logo" class="hero-bg-logo">
+        <div class="hero-box">
+            <h1 class="slide-up">High performance <br><span class="accent">augmentations.</span></h1>
+            <div class="btn-group slide-up">
+                <a href="downloads.html" class="btn-primary">Go to Tools</a>
+            </div>
+        </div>
+    </main>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* REMOVED OVERFLOW HIDDEN - This was the bug */
-}
-
-/* Navbar */
-nav {
-    height: 90px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    width: 100%;
-    z-index: 100;
-}
-
-.nav-content {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 60px;
-}
-
-.nav-logo-text {
-    font-family: 'Syne', sans-serif;
-    letter-spacing: 6px;
-    font-size: 22px;
-    color: var(--pastel-pink);
-}
-
-.links a {
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-dim);
-    margin-left: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.links a.active { color: #fff; }
-
-/* Main Content Area */
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 60px 20px;
-}
-
-.hero-bg-logo {
-    position: absolute;
-    bottom: 0;
-    left: 40px;
-    height: 85vh;
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    max-width: 900px;
-}
-
-h1 {
-    font-family: 'Inter Tight', sans-serif;
-    font-size: clamp(45px, 10vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -4px;
-    margin-bottom: 20px;
-    text-transform: lowercase;
-}
-
-.accent { color: var(--pastel-pink); }
-
-.sub-text {
-    color: var(--text-dim);
-    font-size: 14px;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-}
-
-/* UI Elements */
-.btn-primary {
-    background: var(--pastel-pink);
-    color: #000;
-    padding: 22px 60px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-primary:hover { background: #fff; transform: translateY(-5px); }
-
-.panel-card {
-    background: var(--panel-gray);
-    padding: 50px;
-    width: 100%;
-    max-width: 520px;
-    border: 1px solid var(--border);
-    position: relative;
-    z-index: 20;
-}
-
-.warning-box {
-    background: rgba(255, 183, 178, 0.08);
-    border-left: 4px solid var(--pastel-pink);
-    padding: 20px;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-/* Footer */
-footer {
-    padding: 40px 20px;
-    text-align: center;
-    z-index: 100;
-}
-
-footer p { 
-    font-size: 10px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    color: var(--text-dim); 
-    margin: 5px 0;
-}
-
-.footer-link { color: var(--text-dim); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; }
-.footer-link:hover { color: var(--pastel-pink); border-color: var(--pastel-pink); }
+    <footer class="footer-credits">
+        <p>dc: @inxyz — lead dev</p>
+        <p><a href="https://github.com/ZwiebelPro" target="_blank" class="footer-link">github.com/ZwiebelPro</a></p>
+    </footer>
+</body>
+</html>
