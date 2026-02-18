@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirai | Injectors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="yuno.png">
+</head>
+<body class="fade-in">
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo-text">MIRAI</div>
+            <div class="links">
+                <a href="index.html">Overview</a>
+                <a href="downloads.html" class="active">Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container centered-content">
+        <div class="panel-card slide-up">
+            <div class="header">
+                <a href="downloads.html" class="back-link">← Categories</a>
+                <h2>Mirai Injectors</h2>
+                <p class="sub-status">Note: Only v26.2 is currently available.</p>
+            </div>
+            
+            <div class="field">
+                <select id="versionSelect" class="custom-select">
+                    <option value="Mirai26.2.exe">Mirai26.2.exe (Online)</option>
+                    <option value="" disabled>Mirai26.1.exe (Offline)</option>
+                    <option value="" disabled>Nikki.dll (Coming Soon)</option>
+                </select>
+            </div>
+
+            <button onclick="triggerDownload()" class="btn-primary full">Download v26.2</button>
+        </div>
+    </div>
+
+    <script>
+        function triggerDownload() {
+            const select = document.getElementById('versionSelect');
+            const file = select.value;
+            
+            if (!file) {
+                alert("This version is currently unavailable.");
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.href = file;
+            link.download = file;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+    <footer>
+        <p>DC: @inxyz — lead dev &nbsp; | &nbsp; @kpr.tekk</p>
+    </footer>
+</body>
+</html>
