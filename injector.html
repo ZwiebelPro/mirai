@@ -3,63 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirai | Native DLL Injector</title>
+    <title>Mirai | Overview</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="yuno.png">
 </head>
-<body class="fade-in">
+<body>
     <nav>
         <div class="nav-content">
             <div class="nav-logo-text">MIRAI</div>
             <div class="links">
-                <a href="index.html">Overview</a>
-                <a href="downloads.html" class="active">Tools</a>
+                <a href="index.html" class="active">Overview</a>
+                <a href="downloads.html">Tools</a>
             </div>
         </div>
     </nav>
 
-    <div class="container centered-content">
-        <div class="panel-card slide-up">
-            <div class="header">
-                <a href="downloads.html" class="back-link">← Categories</a>
-                <h2>Native DLL Injector</h2>
-                <p class="sub-status">Active deployment builds.</p>
-            </div>
-            
-            <div class="field">
-                <select id="versionSelect" class="custom-select">
-                    <option value="EXTERNAL_MIRROR">MiraiB (External Download)</option>
-                    <option value="Nikki.dll">Nikki.dll (Runtime Only)</option>
-                </select>
-            </div>
-
-            <button onclick="triggerAction()" class="btn-primary full">Access Selected</button>
+    <main class="hero">
+        <img src="yuno.png" alt="" class="hero-bg-logo">
+        <div class="hero-content">
+            <h1>High performance <br><span class="accent">augmentations.</span></h1>
+            <a href="downloads.html" class="btn-primary">Go to Tools</a>
         </div>
-    </div>
-
-    <script>
-        function triggerAction() {
-            const select = document.getElementById('versionSelect');
-            const target = select.value;
-            
-            if (target === "EXTERNAL_MIRROR") {
-                // REPLACE THE LINK BELOW with your MediaFire/Drive link for MiraiB
-                alert("Redirecting to external mirror for MiraiB...");
-                window.open("https://www.mediafire.com/your-link-here", "_blank");
-            } else {
-                // Standard download for small files like Nikki.dll
-                const link = document.createElement('a');
-                link.href = target;
-                link.download = target;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        }
-    </script>
+    </main>
 
     <footer>
         <p>dc: @inxyz — lead dev</p>
+        <p><a href="https://github.com/ZwiebelPro" target="_blank" class="footer-link">github.com/ZwiebelPro</a></p>
     </footer>
 </body>
 </html>
